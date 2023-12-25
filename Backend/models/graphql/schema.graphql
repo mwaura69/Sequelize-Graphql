@@ -1,0 +1,23 @@
+type User {
+    username: String,
+    age: Int,
+    country: String,
+    id: ID!
+}
+type Country {
+    country: String,
+    users: [User]
+}
+
+type Query {
+    user(id: ID, username: String, age: Int, country: String): User
+    users: [User]
+    countries: [Country]
+    country(country: String): Country
+}
+
+type Mutation {
+    createUser(name: String, age: Int, country: String): User
+    updateUser(id: ID!, name: String, age: Int, country: String): User
+    deleteUser(id:ID!): Boolean
+}
